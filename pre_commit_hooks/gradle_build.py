@@ -17,12 +17,19 @@ def main(argv=None):  # type: (Optional[Sequence[str]]) -> int
         '-o', '--output', action='store_true',
         help='Prints the output of all executed gradle commands.'
     )
+    parser.add_argument(
+        '--exclude-task', action='store', dest='exclude_task', type=str,
+        help='Exclude given task during the command.'
+    )
     args = parser.parse_args(argv)
 
+    skip_test_arg = f' -x {args.exclude}' if args.exclude else '';
+    task = 'build' + skip_test_arg
+
     if args.wrapper:
-        return run_gradle_wrapper_task(args.output, 'build')
+        return run_gradle_wrapper_task(args.output, task)
     else:
-        return run_gradle_task(args.output, 'build')
+        return run_gradle_task(args.output, task)
 
 
 if __name__ == '__main__':
