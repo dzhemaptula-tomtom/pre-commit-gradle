@@ -1,10 +1,8 @@
-pre-commit-gradle
-================
+# pre-commit-gradle
 
 Some custom gradle hooks for pre-commit.
 
 See also: https://github.com/pre-commit/pre-commit-hooks
-
 
 ### Using pre-commit-gradle with pre-commit
 
@@ -16,20 +14,21 @@ Add this to your `.pre-commit-config.yaml`
         -   id: gradle-check
         # -   id: ...
 
-
 ### Hooks available
 
 - `gradle-check` - Run gradle unit test tasks
-    - Use gradlew (gradle wrapper) `args: ['-w', --wrapper]`.
-    - Print output from gradle command `args: ['-o', --output]`.
+  - Use gradlew (gradle wrapper) `args: ['-w', --wrapper]`.
+  - Print output from gradle command `args: ['-o', --output]`.
+  - Exclude given tasks during the command `args: ['-x', --exclude]`.
 - `gradle-build` - Run gradle build tasks
-    - Use gradlew (gradle wrapper) `args: ['-w', --wrapper]`.
-    - Print output from gradle command `args: ['-o', --output]`.
+  - Use gradlew (gradle wrapper) `args: ['-w', --wrapper]`.
+  - Print output from gradle command `args: ['-o', --output]`.
+  - Exclude given tasks during the command `args: ['-x', --exclude]`.
 - `gradle-spotless` - Run gradle spotless tasks for java linting
-    - Require spotless plugin: [github](https://github.com/diffplug/spotless/tree/master/plugin-gradle)
-    - Use gradlew (gradle wrapper) `args: ['-w', --wrapper]`.
-    - Print output from gradle command `args: ['-o', --output]`.
+  - Require spotless plugin: [github](https://github.com/diffplug/spotless/tree/master/plugin-gradle)
+  - Use gradlew (gradle wrapper) `args: ['-w', --wrapper]`.
+  - Print output from gradle command `args: ['-o', --output]`.
 - `gradle-task` - Run any arbitrary gradle commands
-    - Provide task name(s) to execute via arguments `args: ['clean build bootRun']`
-    - Use gradlew (gradle wrapper) `args: ['-w', --wrapper]`.
-    - Print output from gradle command `args: ['-o', --output]`.
+  - Provide task name(s) to execute via arguments `args: ['clean build bootRun']`
+  - Use gradlew (gradle wrapper) `args: ['-w', --wrapper]`.
+  - Print output from gradle command `args: ['-o', --output]`.
