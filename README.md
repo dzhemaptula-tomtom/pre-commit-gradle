@@ -19,11 +19,11 @@ Add this to your `.pre-commit-config.yaml`
 - `gradle-check` - Run gradle unit test tasks
   - Use gradlew (gradle wrapper) `args: ['-w', --wrapper]`.
   - Print output from gradle command `args: ['-o', --output]`.
-  - Exclude given tasks during the command `args: ['-x', --exclude]`.
+  - Exclude given tasks during the command `args: ['--exclude-tasks', 'task-one', 'task-two']`.
 - `gradle-build` - Run gradle build tasks
   - Use gradlew (gradle wrapper) `args: ['-w', --wrapper]`.
   - Print output from gradle command `args: ['-o', --output]`.
-  - Exclude given tasks during the command `args: ['-x', --exclude]`.
+  - Exclude given tasks during the command `args: ['--exclude-tasks', 'task-one', 'task-two']`.
 - `gradle-spotless` - Run gradle spotless tasks for java linting
   - Require spotless plugin: [github](https://github.com/diffplug/spotless/tree/master/plugin-gradle)
   - Use gradlew (gradle wrapper) `args: ['-w', --wrapper]`.

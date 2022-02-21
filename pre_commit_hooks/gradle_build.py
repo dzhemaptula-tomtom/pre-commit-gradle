@@ -28,7 +28,6 @@ def main(argv=None):  # type: (Optional[Sequence[str]]) -> int
     for arg_exclude_task in args.exclude_tasks:
         task += f" -x {arg_exclude_task}"
 
-
     if args.wrapper:
         return run_gradle_wrapper_task(args.output, task)
     else:
