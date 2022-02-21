@@ -18,14 +18,15 @@ def main(argv=None):  # type: (Optional[Sequence[str]]) -> int
         help='Prints the output of all executed gradle commands.'
     )
     parser.add_argument(
-        '--exclude-task', action='store', dest='exclude_task',
-        help='Exclude given task during the command.'
+        '--exclude-tasks', action='store', dest='exclude_tasks', nargs='+', default=[],
+        help='Exclude given task during the command. eg: test,integTest,compile'
     )
-    print(argv)
     args = parser.parse_args(argv)
 
-    skip_test_arg = f' -x {args.exclude_task}' if args.exclude_task else '';
-    task = 'check' + skip_test_arg
+    task = 'check'
+
+    for arg_exclude_task in args.exclude_tasks.split(","):
+        task += f" -x {arg_exclude_task}"
 
     if args.wrapper:
         return run_gradle_wrapper_task(args.output, task)
